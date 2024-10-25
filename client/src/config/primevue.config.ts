@@ -1,7 +1,7 @@
-import Material from '@primevue/themes/material';
+import Aura from '@primevue/themes/aura';
 import { definePreset } from '@primevue/themes';
 
-const MyPreset = definePreset(Material, {
+const MyPreset = definePreset(Aura, {
   primitive: {
     dodger: {
       50: '#F5F0FF',

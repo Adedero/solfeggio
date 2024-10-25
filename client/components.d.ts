@@ -7,10 +7,13 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppHomeHeader: typeof import('./src/components/app/AppHomeHeader.vue')['default']
+    AppSidebar: typeof import('./src/components/app/AppSidebar.vue')['default']
     Button: typeof import('primevue/button')['default']
     Checkbox: typeof import('primevue/checkbox')['default']
     DefaultHeader: typeof import('./src/components/default/DefaultHeader.vue')['default']
     DefaultSidebar: typeof import('./src/components/default/DefaultSidebar.vue')['default']
+    Dialog: typeof import('primevue/dialog')['default']
     Divider: typeof import('primevue/divider')['default']
     Drawer: typeof import('primevue/drawer')['default']
     FloatLabel: typeof import('primevue/floatlabel')['default']
@@ -29,6 +32,8 @@ declare module 'vue' {
     Password: typeof import('primevue/password')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScoreCreator: typeof import('./src/components/app/ScoreCreator.vue')['default']
+    ScoreList: typeof import('./src/components/app/ScoreList.vue')['default']
     SignInForm: typeof import('./src/components/auth/SignInForm.vue')['default']
     SignUpForm: typeof import('./src/components/auth/SignUpForm.vue')['default']
     Step: typeof import('primevue/step')['default']

@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { provide, ref } from 'vue';
+import { provide, ref, watch } from 'vue';
 interface Props {
   case: string | number | boolean;
 }
 
 const props = defineProps<Props>();
 
-provide("switch-case", ref(props.case));
+const switchCase = ref(props.case)
+
+provide("switch-case", switchCase);
+
+watch(
+  () => props.case,
+  () => {
+    switchCase.value = props.case;
+  }
+)
 
 </script>
 
