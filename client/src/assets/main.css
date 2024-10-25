@@ -22,3 +22,7 @@
 body {
   color: var(--p-text-color)
 }
+
+.material-icons-round {
+  font-weight: 300;
+}

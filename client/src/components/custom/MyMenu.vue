@@ -38,7 +38,7 @@ onClickOutside(el, () => {
 });
 
 
-const handleClick = (item) => {
+const handleClick = (item: Record<Menu["items"]>) => {
   if (item.command) {
     item.command();
   }
@@ -72,8 +72,9 @@ const handleClick = (item) => {
 <style scoped>
 .my-menu {
   position: fixed;
-  left: 4.5rem;
-  top: 5rem;
+  z-index: 50;
+  left: 4rem;
+  top: 6rem;
   min-width: 14rem;
   max-height: calc(100dvh - 2.5rem);
   overflow-y: auto;

@@ -1,6 +1,9 @@
 import './assets/main.css'
 import 'primeicons/primeicons.css';
 import '@fontsource-variable/montserrat';
+import 'material-icons/iconfont/outlined.css';
+import 'material-icons/iconfont/round.css';
+import '@coddicat/vue-pinch-scroll-zoom/style.css';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

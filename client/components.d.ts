@@ -7,6 +7,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Accordion: typeof import('primevue/accordion')['default']
+    AccordionContent: typeof import('primevue/accordioncontent')['default']
+    AccordionHeader: typeof import('primevue/accordionheader')['default']
+    AccordionPanel: typeof import('primevue/accordionpanel')['default']
     AppHomeHeader: typeof import('./src/components/app/AppHomeHeader.vue')['default']
     AppSidebar: typeof import('./src/components/app/AppSidebar.vue')['default']
     Button: typeof import('primevue/button')['default']
@@ -30,11 +34,14 @@ declare module 'vue' {
     MusicLibSearchbar: typeof import('./src/components/default/MusicLibSearchbar.vue')['default']
     MyIcon: typeof import('./src/components/custom/MyIcon.vue')['default']
     MyMenu: typeof import('./src/components/custom/MyMenu.vue')['default']
+    MyPinchZoom: typeof import('./src/components/custom/MyPinchZoom.vue')['default']
     MySection: typeof import('./src/components/custom/MySection.vue')['default']
     Password: typeof import('primevue/password')['default']
+    PinchZoom: typeof import('./src/components/custom/PinchZoom.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ScoreCreator: typeof import('./src/components/app/ScoreCreator.vue')['default']
+    ScoreHeader: typeof import('./src/components/app/ScoreHeader.vue')['default']
     ScoreLeftSidebar: typeof import('./src/components/app/ScoreLeftSidebar.vue')['default']
     ScoreList: typeof import('./src/components/app/ScoreList.vue')['default']
     ScoreRightSidebar: typeof import('./src/components/app/ScoreRightSidebar.vue')['default']
