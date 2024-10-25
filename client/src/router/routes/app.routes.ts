@@ -13,7 +13,7 @@ const appRoutes: Route[] = [
     component: () => import("@/views/app/AppHomeView.vue")
   },
   {
-    path: "score/:score_id",
+    path: "score/:score_id?",
     name: "score",
     component: () => import('@/views/app/ScoreView.vue')
   }

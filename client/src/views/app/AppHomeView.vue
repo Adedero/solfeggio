@@ -5,9 +5,7 @@ const layout = ref('grid');
 </script>
 
 <template>
-  <main class="h-dvh">
-    <AppHomeHeader />
-
+  <main>
     <section class="p-5 h-[calc(100dvh-6rem)] flex flex-col gap-2 *:flex-shrink-0">
       <header class="flex items-center gap-2 justify-between flex-wrap">
         <h1 class="text-4xl font-medium text-[--p-primary-800]">Scores</h1>
