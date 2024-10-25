@@ -17,6 +17,8 @@
     "@fontsource-variable/montserrat": "^5.1.0",
     "@primevue/themes": "^4.1.1",
     "@vueuse/core": "^11.1.0",
+    "@vueuse/gesture": "^2.0.0",
+    "@vueuse/motion": "^2.2.6",
     "material-icons": "^1.13.12",
     "pinch-zoom-js": "^2.3.5",
     "pinia": "^2.2.4",
