@@ -7,7 +7,7 @@ const props = defineProps<Props>();
 
 const switchCase = inject("switch-case");
 
-const isMatched = computed(() => props.value === switchCase);
+const isMatched = computed(() => props.value === switchCase.value);
 </script>
 
 <template>

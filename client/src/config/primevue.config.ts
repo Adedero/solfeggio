@@ -1,20 +1,35 @@
-import Aura from '@primevue/themes/aura';
+import Material from '@primevue/themes/material';
 import { definePreset } from '@primevue/themes';
 
-const MyPreset = definePreset(Aura, {
+const MyPreset = definePreset(Material, {
+  primitive: {
+    dodger: {
+      50: '#F5F0FF',
+      100: '#E5D6FF',
+      200: '#CBADFF',
+      300: '#AB7AFF',
+      400: '#8138FF',
+      500: '#640AFF',
+      600: '#4D00D1',
+      700: '#4000AD',
+      800: '#2F0080',
+      900: '#200057',
+      950: '#150038'
+    }
+  },
   semantic: {
     primary: {
-      50: '{rose.50}',
-      100: '{rose.100}',
-      200: '{rose.200}',
-      300: '{rose.300}',
-      400: '{rose.400}',
-      500: '{rose.500}',
-      600: '{rose.600}',
-      700: '{rose.700}',
-      800: '{rose.800}',
-      900: '{rose.900}',
-      950: '{rose.950}',
+      50: '{cyan.50}',
+      100: '{cyan.100}',
+      200: '{cyan.200}',
+      300: '{cyan.300}',
+      400: '{cyan.400}',
+      500: '{cyan.500}',
+      600: '{cyan.600}',
+      700: '{cyan.700}',
+      800: '{cyan.800}',
+      900: '{cyan.900}',
+      950: '{cyan.950}',
     },
   },
 })
