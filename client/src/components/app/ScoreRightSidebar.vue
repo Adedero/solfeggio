@@ -4,7 +4,7 @@ const isOpen = ref(true);
 </script>
 
 <template>
-  <div class="toolbar h-full bg-cyan-500" :class="{ 'open': isOpen }">
+  <div class="toolbar h-full bg-cyan-500 p-1" :class="{ 'open': isOpen }">
     <header class="w-full">
       <Button @click="isOpen = !isOpen" :label="isOpen ? 'Toolbar' : ''"
         :icon="isOpen ? 'pi pi-arrow-right' : 'pi pi-bars'" class="w-full rounded-none"
