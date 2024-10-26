@@ -32,6 +32,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     ScoreCreator: typeof import('./src/components/app/ScoreCreator.vue')['default']
     ScoreCredentialText: typeof import('./src/components/app/score/texts/ScoreCredentialText.vue')['default']
+    ScoreCreditTexts: typeof import('./src/components/app/score/texts/ScoreCreditTexts.vue')['default']
     ScoreHeader: typeof import('./src/components/app/ScoreHeader.vue')['default']
     ScoreItem: typeof import('./src/components/app/score/ScoreItem.vue')['default']
     ScoreLeftSidebar: typeof import('./src/components/app/ScoreLeftSidebar.vue')['default']

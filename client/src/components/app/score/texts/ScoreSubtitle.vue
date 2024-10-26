@@ -1,3 +1,0 @@
-<template>
-  dfdf
-</template>

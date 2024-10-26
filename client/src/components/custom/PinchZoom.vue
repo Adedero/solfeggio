@@ -33,26 +33,6 @@ const transformStyle = computed(() => ({
   transformOrigin: `${originX.value}px ${originY.value}px`
 }))
 
-/* const limitTranslation = (newX: number, newY: number) => {
-  if (!container.value || !content.value) return { x: newX, y: newY }
-
-  const containerRect = container.value.getBoundingClientRect()
-  const contentRect = content.value.getBoundingClientRect()
-
-  // Calculate the scaled content dimensions
-  const scaledWidth = contentRect.width * scale.value
-  const scaledHeight = contentRect.height * scale.value
-
-  // Calculate the maximum translation limits
-  const minX = containerRect.width - scaledWidth
-  const minY = containerRect.height - scaledHeight
-
-  return {
-    x: Math.min(0, Math.max(minX, newX)),
-    y: Math.min(0, Math.max(minY, newY))
-  }
-} */
-
 // Wheel zoom handler
 const onWheel = (event: WheelEvent) => {
   const wheelType = getWheelType(event)
@@ -84,7 +64,11 @@ const onWheel = (event: WheelEvent) => {
     translateY.value = mouseY - (contentY * newScale)
 
     scale.value = newScale
-    emit('update:scale', newScale)
+    emit('update:scale', {
+      scale: scale.value,
+      translateX: translateX.value,
+      translateY: translateY.value,
+    })
 
     return
   }
@@ -103,14 +87,6 @@ const onWheel = (event: WheelEvent) => {
 
   if (translateY.value > 500) translateY.value = 500;
   if (translateY.value < -1000) translateY.value = -1000;
-
-  //console.log(translateX.value, translateY.value)
-
-  // Limit the translation to prevent the content from moving out of bounds
-  //const newTranslate = limitTranslation(translateX.value, translateY.value)
-
-  //translateX.value = newTranslate.x
-  //translateY.value = newTranslate.y
 
   emit('update:scale', scale.value) // Emit scale to update if necessary
 }

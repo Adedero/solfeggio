@@ -4,6 +4,13 @@ import type { CSSProperties } from 'vue';
 import type { TextStyle } from '../../../../types/text.types';
 import { useStore } from '../../../../stores/store';
 import useDraggable from '@/composables/use-draggable';
+
+interface Props {
+  attribute: string;
+}
+
+defineProps<Props>();
+
 const store = useStore();
 
 const scoreTitleEl = ref<HTMLElement | null>(null);

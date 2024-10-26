@@ -42,7 +42,11 @@ export const useStore = defineStore('app', () => {
 
   }
 
-  const workspace = ref({});
+  const workspace = ref({
+    scale: 0,
+    translateX: 0,
+    translateY: 0,
+  });
 
   return { score, history, undo, redo, workspace }
 })

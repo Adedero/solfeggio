@@ -65,7 +65,7 @@ export const defaultScore : Partial<Score> = {
   },
   "credits": {
     "title": {
-      "text": "Title",
+      "text": "Bethlehem Down",
       "default_x": 0,
       "default_y": 30,
       "font": "Arial",

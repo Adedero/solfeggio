@@ -41,7 +41,7 @@ const pageStyle = computed(() => {
     :style="[
       pageStyle.size,
       page % 2 === 0 ? `padding: ${pageStyle.padding.even}` : `padding: ${pageStyle.padding.odd}`
-      ]" 
+    ]" 
     class="score-page">
      <ScorePage :page />
     </div>
