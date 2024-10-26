@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { useStore } from '@/stores/store';
 const store = useStore();
 
-const pages = ref(1);
+const pages = computed(() => store.score.pages);
 
 const pageStyle = computed(() => {
   return {

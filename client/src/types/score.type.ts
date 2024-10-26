@@ -30,6 +30,7 @@ export interface Score {
       "encoding": string
     }
   },
+  "pages": number,
   "appearance": {
     "page_layout": {
       "width": number,

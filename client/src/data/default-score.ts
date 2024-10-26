@@ -24,6 +24,7 @@ export const defaultScore : Partial<Score> = {
       "encoding": ""
     }
   },
+  "pages": 1,
   "appearance": {
     "page_layout": {
       "width": 595,
