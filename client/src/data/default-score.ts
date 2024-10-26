@@ -32,16 +32,16 @@ export const defaultScore : Partial<Score> = {
       "orientation": "portrait",
       "margins": {
         "odd_page_margin": {
-          "top": 20,
-          "bottom": 20,
-          "left": 20,
-          "right": 20
+          "top": 10,
+          "bottom": 10,
+          "left": 10,
+          "right": 10
         },
         "even_page_margin": {
-          "top": 20,
-          "bottom": 20,
-          "left": 20,
-          "right": 20
+          "top": 10,
+          "bottom": 10,
+          "left": 10,
+          "right": 10
         }
       }
     },
@@ -67,9 +67,9 @@ export const defaultScore : Partial<Score> = {
     "title": {
       "text": "Bethlehem Down",
       "default_x": 0,
-      "default_y": 30,
+      "default_y": 15,
       "font": "Arial",
-      "size": 24,
+      "size": 22,
       "color": "#000000",
       "text_align": "center",
       "font_weight": "bold",
@@ -77,11 +77,11 @@ export const defaultScore : Partial<Score> = {
       "font_style": 'none',
     },
     "subtitle": {
-      "text": "Subtitle",
+      "text": "SUBTITLE",
       "default_x": 0,
-      "default_y": 35,
+      "default_y": 45,
       "font": "Arial",
-      "size": 18,
+      "size": 14,
       "color": "#000000",
       "text_align": "center",
       "font_weight": 'normal',
@@ -90,24 +90,24 @@ export const defaultScore : Partial<Score> = {
     },
     "composer": {
       "text": "Composer",
-      "default_x": 575,
-      "default_y": 50,
+      "default_x": 475,
+      "default_y": 60,
       "font": "Arial",
-      "size": 16,
+      "size": 13,
       "color": "#000000",
-      "text_align": "left",
+      "text_align": "right",
       "font_weight": 'normal',
       "decoration": 'none',
       "font_style": 'none',
     },
     "arranger": {
       "text": "Arranger Name",
-      "default_x": 575,
-      "default_y": 55,
+      "default_x": 435,
+      "default_y": 80,
       "font": "Arial",
-      "size": 16,
+      "size": 12,
       "color": "#000000",
-      "text_align": "left",
+      "text_align": "right",
       "font_weight": 'normal',
       "decoration": 'none',
       "font_style": 'none',

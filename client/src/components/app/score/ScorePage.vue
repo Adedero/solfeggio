@@ -13,7 +13,10 @@ defineProps<Props>();
 <template>
   <div class="w-full h-full relative">
     <div class="center-line z-[0] absolute h-full w-[1px] bg-blue-300 inset-0 m-auto"></div>
-    <ScoreTitle />
+    <!-- <ScoreTitle /> -->
+    <ScoreCreditText attribute="title" />
+    <ScoreCreditText attribute="subtitle" />
+    <ScoreCreditText attribute="composer" />
     <!-- <ScoreSubtitle /> -->
   </div>
 </template>

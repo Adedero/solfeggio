@@ -6,10 +6,10 @@ import { useStore } from '../../../../stores/store';
 import useDraggable from '@/composables/use-draggable';
 
 interface Props {
-  attribute: string;
+  attribute: "title" | "subtitle" | "composer" | "arranger" | "lyricist" | "dedication" | "editor" | "transcriber" | "translator";
 }
 
-defineProps<Props>();
+const { attribute } = defineProps<Props>();
 
 const store = useStore();
 
@@ -18,13 +18,13 @@ const scoreTitleEl = ref<HTMLElement | null>(null);
 const { x, y } = useDraggable(scoreTitleEl,
   {
     initialValue: {
-      x: store.score.credits.title.default_x,
-      y: store.score.credits.title.default_y,
+      x: store.score.credits[attribute].default_x,
+      y: store.score.credits[attribute].default_y,
     },
     centerVertically: true,
     onDragEnd: (newX: number, newY: number) => {
-      store.score.credits.title = {
-        ...store.score.credits.title,
+      store.score.credits[attribute] = {
+        ...store.score.credits[attribute],
         default_x: newX,
         default_y: newY
       }
@@ -35,25 +35,25 @@ const { x, y } = useDraggable(scoreTitleEl,
 const titleStyles = computed(() : CSSProperties => {
   return {
     position: 'absolute',
-    fontFamily: store.score.credits.title.font,
-    fontWeight: store.score.credits.title.font_weight,
-    fontSize: `${store.score.credits.title.size}px`,
-    color: store.score.credits.title.color,
+    fontFamily: store.score.credits[attribute].font,
+    fontWeight: store.score.credits[attribute].font_weight,
+    fontSize: `${store.score.credits[attribute].size}px`,
+    color: store.score.credits[attribute].color,
     left: `${x.value}px`,
     top: `${y.value}px`,
-    textAlign: store.score.credits.title.text_align as CSSProperties['textAlign'],
+    textAlign: store.score.credits[attribute].text_align as CSSProperties['textAlign'],
     cursor: 'context-menu',
-    fontStyle: store.score.credits.title.font_style,
-    textDecoration: store.score.credits.title.decoration
+    fontStyle: store.score.credits[attribute].font_style,
+    textDecoration: store.score.credits[attribute].decoration
   }
 })
 
 const editing = ref(false);
 
 const saveEdit = (edit: { text: string,styles: TextStyle }) => {
-  store.score.credits.title = {
-    default_x: store.score.credits.title.default_x,
-    default_y: store.score.credits.title.default_y,
+  store.score.credits[attribute] = {
+    default_x: store.score.credits[attribute].default_x,
+    default_y: store.score.credits[attribute].default_y,
     text: edit.text,
     font: edit.styles.fontFamily,
     size: parseInt(edit.styles.fontSize.toString().split('px')[0]),
@@ -70,13 +70,15 @@ const saveEdit = (edit: { text: string,styles: TextStyle }) => {
 </script>
 
 <template>
-  <button @dblclick="editing=true" ref="scoreTitleEl"
+  <button
+    v-if="store.score.credits[attribute].text.length"
+    @dblclick="editing=true" ref="scoreTitleEl"
     class="focus-item"
     :style="titleStyles">
-    {{ store.score.credits.title.text }}
+    {{ store.score.credits[attribute].text }}
   </button>
 
   <TextEditor v-if="editing" v-model:visible="editing"
-    :text="store.score.credits.title.text" :styles="titleStyles"
+    :text="store.score.credits[attribute].text" :styles="titleStyles"
     @edit="saveEdit" />
 </template>

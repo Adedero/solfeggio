@@ -79,7 +79,7 @@ const setTextAlign = (value: "left" | "center" | "right") => {
       </div>
 
       <div>
-        <InputText v-model="textRef" fluid :style="textStyles" size="small" />
+        <InputText v-model="textRef" fluid :style="textStyles" />
       </div>
 
       <div class="flex items-center justify-between">
