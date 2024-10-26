@@ -23,7 +23,7 @@
 
       <section class="flex-grow min-w-0 bg-slate-700">
         <PinchZoom ref="pinch">
-          <div class="score-container w-full h-full p-10">
+          <div class="score-container w-full h-full">
             <ScoreItem />
           </div>
         </PinchZoom>

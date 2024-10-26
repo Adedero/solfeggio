@@ -102,7 +102,7 @@ const onWheel = (event: WheelEvent) => {
   if (translateX.value < -1600) translateX.value = -1600;
 
   if (translateY.value > 500) translateY.value = 500;
-  if (translateY.value < -100) translateY.value = -100;
+  if (translateY.value < -1000) translateY.value = -1000;
 
   //console.log(translateX.value, translateY.value)
 
