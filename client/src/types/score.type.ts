@@ -1,5 +1,11 @@
 
-
+interface Part {
+  "id": string,
+  "measure": {
+    "number": number,
+    "width": number
+  }
+}
 export interface Score {
   "meta": {
     "score": {
@@ -12,7 +18,7 @@ export interface Score {
         "key_signature": string
       },
       "tempo": {
-        "note": "half" | "quater",
+        "note": "quater" | "half" | "one" | "two" | "four",
         "bpm": number,
         "time_signature": string
       }
@@ -30,13 +36,13 @@ export interface Score {
       "height": number,
       "orientation": "portrait" | "landscape",
       "margins": {
-        "odd": {
+        "odd_page_margin": {
           "top": number,
           "bottom": number,
           "left": number,
           "right": number
         },
-        "even": {
+        "even_page_margin": {
           "top": number,
           "bottom": number,
           "left": number,
@@ -106,66 +112,58 @@ export interface Score {
     "dedication": {
       "text": "Dedication",
       "default_x": number,
-      "default_y": 630,
+      "default_y": number,
       "font": string,
-      "size": 16,
+      "size": number,
       "color": string
     },
     "editor": {
       "text": "Editor Name",
       "default_x": number,
-      "default_y": 660,
+      "default_y": number,
       "font": string,
-      "size": 16,
+      "size": number,
       "color": string
     },
     "transcriber": {
       "text": "Transcriber Name",
       "default_x": number,
-      "default_y": 690,
+      "default_y": number,
       "font": string,
-      "size": 16,
+      "size": number,
       "color": string
     },
     "translator": {
       "text": "Translator Name",
       "default_x": number,
-      "default_y": 690,
+      "default_y": number,
       "font": string,
-      "size": 16,
+      "size": number,
       "color": string
     }
   },
   "part_list": [
     {
-      "id": "P1",
+      "id": string,
       "start": true,
-      "part_name": "Soprano" ,
-      "part_abbreviation": "S.",
+      "part_name": string ,
+      "part_abbreviation": string,
       "instrument": {
-        "instrument_name": "Soprano",
-        "instrument_sound": "soprano"
+        "instrument_name": string,
+        "instrument_sound": string
       },
       "midi_device": {
-        "id": "MD1",
-        "port": 2
+        "id": string,
+        "port": number
       },
       "midi_instrument": {
-        "id": "MI1",
-        "program": 0,
-        "channel": 0,
-        "volume": 34,
-        "pan": 0
+        "id": string,
+        "program": number,
+        "channel": number,
+        "volume": number,
+        "pan": number
       }
     }
   ],
-  "parts": [
-    {
-      "id": "MI1",
-      "measure": {
-        "number": 1,
-        "width": 434
-      }
-    }
-  ]
+  "parts": Part[]
 }

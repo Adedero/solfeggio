@@ -12,7 +12,3 @@ export interface Menu {
   title?: string;
   items?: Item[]
 }
-
-export interface Score {
-  
-}
