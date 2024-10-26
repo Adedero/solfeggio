@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useStore } from '@/stores/store';
+const store = useStore();
+
 
 </script>
 
@@ -12,18 +15,19 @@
 
 <template>
   <main class="h-[calc(100dvh-2.5rem)]">
+    {{ store.$state }}
     <section class="w-full h-12 bg-[--p-primary-700]">
       <ScoreHeader />
     </section>
 
     <div class="h-[calc(100%-3rem)] flex">
-      <section class="w-16 h-full overflow-y-auto bg-[--p-primary-color] text-white">
+      <section class="w-16 h-full flex-shrink-0 overflow-y-auto bg-[--p-primary-color] text-white">
         <ScoreLeftSidebar />
       </section>
 
       <section class="flex-grow min-w-0 bg-slate-700">
         <PinchZoom ref="pinch">
-          <div class="score-container flex gap-4 p-10">
+          <div class="score-container w-full h-full flex gap-4 p-10">
             <div class="score-page"></div>
             <div class="score-page"></div>
           </div>

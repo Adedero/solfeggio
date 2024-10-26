@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { getWheelType } from '@/composables/use-zoom-control';
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 
 const props = defineProps({
@@ -23,41 +24,95 @@ const scale = ref(1)
 const translateX = ref(0)
 const translateY = ref(0)
 
+const originX = ref(0);
+const originY = ref(0)
+
 // Computed style with scale and translate transform
 const transformStyle = computed(() => ({
   transform: `translate(${translateX.value}px, ${translateY.value}px) scale(${scale.value})`,
-  transformOrigin: '0 0'
+  transformOrigin: `${originX.value}px ${originY.value}px`
 }))
+
+/* const limitTranslation = (newX: number, newY: number) => {
+  if (!container.value || !content.value) return { x: newX, y: newY }
+
+  const containerRect = container.value.getBoundingClientRect()
+  const contentRect = content.value.getBoundingClientRect()
+
+  // Calculate the scaled content dimensions
+  const scaledWidth = contentRect.width * scale.value
+  const scaledHeight = contentRect.height * scale.value
+
+  // Calculate the maximum translation limits
+  const minX = containerRect.width - scaledWidth
+  const minY = containerRect.height - scaledHeight
+
+  return {
+    x: Math.min(0, Math.max(minX, newX)),
+    y: Math.min(0, Math.max(minY, newY))
+  }
+} */
 
 // Wheel zoom handler
 const onWheel = (event: WheelEvent) => {
-  if (!event.ctrlKey) return
+  const wheelType = getWheelType(event)
+
   event.preventDefault()
 
-  const rect = container.value!.getBoundingClientRect()
-  const mouseX = event.clientX - rect.left
-  const mouseY = event.clientY - rect.top
+  if (wheelType === 'TRACK_ZOOM' || wheelType === 'MOUSE_ZOOM') {
 
-  // Calculate point on content where mouse is before zoom
-  const contentX = (mouseX - translateX.value) / scale.value
-  const contentY = (mouseY - translateY.value) / scale.value
+    const rect = container.value!.getBoundingClientRect()
+    const mouseX = event.clientX - rect.left
+    const mouseY = event.clientY - rect.top
 
-  const delta = -Math.sign(event.deltaY)
-  const zoomFactor = 1 + (delta * props.wheelZoomRatio)
-  const newScale = Math.min(
-    Math.max(
-      scale.value * zoomFactor,
-      props.minScale
-    ),
-    props.maxScale
-  )
+    // Calculate point on content where mouse is before zoom
+    const contentX = (mouseX - translateX.value) / scale.value
+    const contentY = (mouseY - translateY.value) / scale.value
 
-  // Calculate new position to keep mouse point in same place
-  translateX.value = mouseX - (contentX * newScale)
-  translateY.value = mouseY - (contentY * newScale)
+    const delta = -Math.sign(event.deltaY)
+    const zoomFactor = 1 + (delta * props.wheelZoomRatio)
+    const newScale = Math.min(
+      Math.max(
+        scale.value * zoomFactor,
+        props.minScale
+      ),
+      props.maxScale
+    )
 
-  scale.value = newScale
-  emit('update:scale', newScale)
+    // Calculate new position to keep mouse point in the same place
+    translateX.value = mouseX - (contentX * newScale)
+    translateY.value = mouseY - (contentY * newScale)
+
+    scale.value = newScale
+    emit('update:scale', newScale)
+
+    return
+  }
+
+  // Handle scrolling
+  const scrollSpeed = 1.5 // Adjust this value to control scroll sensitivity
+  const deltaX = event.deltaX * scrollSpeed
+  const deltaY = event.deltaY * scrollSpeed
+
+  // Update translation based on scroll
+  translateX.value -= deltaX
+  translateY.value -= deltaY
+
+  if (translateX.value > 800) translateX.value = 800;
+  if (translateX.value < -1600) translateX.value = -1600;
+
+  if (translateY.value > 500) translateY.value = 500;
+  if (translateY.value < -100) translateY.value = -100;
+
+  //console.log(translateX.value, translateY.value)
+
+  // Limit the translation to prevent the content from moving out of bounds
+  //const newTranslate = limitTranslation(translateX.value, translateY.value)
+
+  //translateX.value = newTranslate.x
+  //translateY.value = newTranslate.y
+
+  emit('update:scale', scale.value) // Emit scale to update if necessary
 }
 
 // Touch handling
@@ -109,7 +164,7 @@ const onTouchMove = (event: TouchEvent) => {
     props.maxScale
   )
 
-  // Calculate new position to keep touch midpoint in same place
+  // Calculate new position to keep touch midpoint in the same place
   translateX.value = touchX - (contentX * newScale)
   translateY.value = touchY - (contentY * newScale)
 
@@ -129,10 +184,6 @@ const reset = () => {
   scale.value = 1
   translateX.value = 0
   translateY.value = 0
-  initialDistance = 0
-  initialScale = 1
-  initialTranslateX = 0
-  initialTranslateY = 0
   emit('update:scale', 1)
 }
 
@@ -176,30 +227,15 @@ defineExpose({
 
 <style scoped>
 .pinch-zoom-container {
-  overflow: auto;
+  overflow: hidden;
   touch-action: none;
   position: relative;
   width: 100%;
   height: 100%;
- /*  display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .pinch-zoom-content {
   width: fit-content;
   height: fit-content;
-  display: flex;
-  align-items: center;
-/*   justify-content: center;
- */
 }
-
-/* .pinch-zoom-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 </style>

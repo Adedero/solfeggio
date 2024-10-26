@@ -56,7 +56,7 @@ const DIRECTIONS = {
   OUT: "OUT",
 };
 
-function getWheelType(event: WheelEvent) {
+export function getWheelType(event: WheelEvent) {
   if (!(event instanceof WheelEvent)) {
     throw "Event must be a WheelEvent";
   }
@@ -75,7 +75,7 @@ function getWheelType(event: WheelEvent) {
   return WHEEL_TYPES.TRACK_SCROLL;
 };
 
-function getWheelDirection(event: WheelEvent) {
+export function getWheelDirection(event: WheelEvent) {
   if (!(event instanceof WheelEvent)) {
     throw "Event must be a WheelEvent";
   }
