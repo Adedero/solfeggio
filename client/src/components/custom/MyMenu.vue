@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { Menu } from '@/types/solfiegge.types';
+import type { Menu, Item } from '@/types/solfiegge.types';
 import { onClickOutside } from '@vueuse/core';
 
 const emit = defineEmits(['open', 'close']);
@@ -38,7 +38,7 @@ onClickOutside(el, () => {
 });
 
 
-const handleClick = (item: Record<Menu["items"]>) => {
+const handleClick = (item: Item) => {
   if (item.command) {
     item.command();
   }
