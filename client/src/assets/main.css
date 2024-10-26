@@ -26,3 +26,9 @@ body {
 .material-icons-round {
   font-weight: 300;
 }
+
+.focus-item {
+  &:focus {
+    color: var(--p-primary-color) !important
+  }
+}

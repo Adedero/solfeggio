@@ -15,9 +15,12 @@ export const useStore = defineStore('app', () => {
   }
 
   watch(score, (newValue: Score) => {
+    //console.log(newValue)
     setScore(newValue)
     updateHistory(newValue)
     console.log('Score updated')
+  },{
+    deep: true
   })
   
   const storedHistory = localStorage.getItem('history');

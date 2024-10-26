@@ -6,6 +6,19 @@ interface Part {
     "width": number
   }
 }
+
+interface ScoreText {
+  "text": string,
+  "default_x": number,
+  "default_y": number,
+  "font": string,
+  "size": number,
+  "color": string
+  "text_align": string,
+  "font_weight": string,
+  "decoration": string,
+  "font_style": string,
+}
 export interface Score {
   "meta": {
     "score": {
@@ -70,79 +83,18 @@ export interface Score {
     }
   },
   "credits": {
-    "title": {
-      "text": string,
-      "default_x": number,
-      "default_y": number,
-      "font": string,
-      "size": number,
-      "color": string
-    },
-    "subtitle": {
-      "text": string,
-      "default_x": number,
-      "default_y": number,
-      "font": string,
-      "size": number,
-      "color": string
-    },
-    "composer": {
-      "text": string,
-      "default_x": number,
-      "default_y": number,
-      "font": string,
-      "size": number,
-      "color": string
-    },
-    "arranger": {
-      "text": "Arranger Name",
-      "default_x": number,
-      "default_y": number,
-      "font": string,
-      "size": number,
-      "color": string
-    },
-    "lyricist": {
-      "text": "Lyricist Name",
-      "default_x": number,
-      "default_y": number,
-      "font": string,
-      "size": number,
-      "color": string
-    },
-    "dedication": {
-      "text": "Dedication",
-      "default_x": number,
-      "default_y": number,
-      "font": string,
-      "size": number,
-      "color": string
-    },
-    "editor": {
-      "text": "Editor Name",
-      "default_x": number,
-      "default_y": number,
-      "font": string,
-      "size": number,
-      "color": string
-    },
-    "transcriber": {
-      "text": "Transcriber Name",
-      "default_x": number,
-      "default_y": number,
-      "font": string,
-      "size": number,
-      "color": string
-    },
-    "translator": {
-      "text": "Translator Name",
-      "default_x": number,
-      "default_y": number,
-      "font": string,
-      "size": number,
-      "color": string
-    }
+    "title": ScoreText,
+    "subtitle": ScoreText,
+    "composer": ScoreText,
+    "arranger": ScoreText,
+    "lyricist": ScoreText,
+    "dedication": ScoreText,
+    "editor": ScoreText,
+    "transcriber": ScoreText,
+    "translator": ScoreText
   },
+  "score_texts": ScoreText[],
+
   "part_list": [
     {
       "id": string,

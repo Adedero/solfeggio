@@ -66,19 +66,27 @@ export const defaultScore : Partial<Score> = {
   "credits": {
     "title": {
       "text": "Title",
-      "default_x": 297.5,
-      "default_y": 35,
+      "default_x": 0,
+      "default_y": 30,
       "font": "Arial",
       "size": 24,
-      "color": "#000000"
+      "color": "#000000",
+      "text_align": "center",
+      "font_weight": "bold",
+      "decoration": 'none',
+      "font_style": 'none',
     },
     "subtitle": {
       "text": "Subtitle",
-      "default_x": 297.5,
-      "default_y": 45,
+      "default_x": 0,
+      "default_y": 35,
       "font": "Arial",
       "size": 18,
-      "color": "#000000"
+      "color": "#000000",
+      "text_align": "center",
+      "font_weight": 'normal',
+      "decoration": 'none',
+      "font_style": 'none',
     },
     "composer": {
       "text": "Composer",
@@ -86,7 +94,11 @@ export const defaultScore : Partial<Score> = {
       "default_y": 50,
       "font": "Arial",
       "size": 16,
-      "color": "#000000"
+      "color": "#000000",
+      "text_align": "left",
+      "font_weight": 'normal',
+      "decoration": 'none',
+      "font_style": 'none',
     },
     "arranger": {
       "text": "Arranger Name",
@@ -94,7 +106,11 @@ export const defaultScore : Partial<Score> = {
       "default_y": 55,
       "font": "Arial",
       "size": 16,
-      "color": "#000000"
+      "color": "#000000",
+      "text_align": "left",
+      "font_weight": 'normal',
+      "decoration": 'none',
+      "font_style": 'none',
     },
     "lyricist": {
       "text": "Lyricist Name",
@@ -102,7 +118,11 @@ export const defaultScore : Partial<Score> = {
       "default_y": 50,
       "font": "Arial",
       "size": 16,
-      "color": "#000000"
+      "color": "#000000",
+      "text_align": "left",
+      "font_weight": 'normal',
+      "decoration": 'none',
+      "font_style": 'none',
     },
     "dedication": {
       "text": "Dedication",
@@ -110,7 +130,11 @@ export const defaultScore : Partial<Score> = {
       "default_y": 15,
       "font": "Arial",
       "size": 16,
-      "color": "#000000"
+      "color": "#000000",
+      "text_align": "center",
+      "font_weight": 'normal',
+      "decoration": 'none',
+      "font_style": 'none',
     },
     "editor": {
       "text": "Editor Name",
@@ -118,7 +142,11 @@ export const defaultScore : Partial<Score> = {
       "default_y": 660,
       "font": "Arial",
       "size": 16,
-      "color": "#000000"
+      "color": "#000000",
+      "text_align": "left",
+      "font_weight": 'normal',
+      "decoration": 'none',
+      "font_style": 'none',
     },
     "transcriber": {
       "text": "Transcriber Name",
@@ -126,7 +154,11 @@ export const defaultScore : Partial<Score> = {
       "default_y": 690,
       "font": "Arial",
       "size": 16,
-      "color": "#000000"
+      "color": "#000000",
+      "text_align": "left",
+      "font_weight": 'normal',
+      "decoration": 'none',
+      "font_style": 'none',
     },
     "translator": {
       "text": "Translator Name",
@@ -134,7 +166,11 @@ export const defaultScore : Partial<Score> = {
       "default_y": 690,
       "font": "Arial",
       "size": 16,
-      "color": "#000000"
+      "color": "#000000",
+      "text_align": "left",
+      "font_weight": 'normal',
+      "decoration": 'none',
+      "font_style": 'none',
     }
   },
   "part_list": [
