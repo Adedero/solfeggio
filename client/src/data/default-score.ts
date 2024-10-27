@@ -1,3 +1,16 @@
+/* 
+slurs and ties, crescendos
+inside the parts
+slurs: [
+  {
+  startNoteIndex: 0,
+  endNoteIndex: 6,
+  placement: "below" | "above",
+
+}
+]
+*/
+
 import type { Score } from "@/types/score.type";
 
 export const defaultScore : Partial<Score> = {

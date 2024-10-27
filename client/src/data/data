@@ -1,0 +1,117 @@
+{
+  "meta": { 
+    "score": {
+      "title": "Bethlehem Down",
+      "description": "A sample composition in tonic solfa",
+      "created_at": "2024-10-26T12:34:56Z",
+      "updated_at": "2024-10-26T12:34:56Z",
+      "key": {
+        "fifths": 0,
+        "mode": "major",
+        "key_signature": "C major"
+      },
+      "tempo": {
+        "base_note": "quarter",
+        "bpm": 80,
+        "time_signature": "4/4"
+      }
+    },
+    "identification": {
+      "author": "Composer Name",
+      "rights": "Public Domain",
+      "source": "Original composition",
+      "encoding": "UTF-8"
+    }
+  },
+  
+  "appearance": {
+    "fonts": {
+      "note_font": { "font": "monospace", "size": 12, "color": "#000000" },
+      "lyric_font": { "font": "system-ui", "size": 12, "color": "#000000" }
+    },
+    "color_scheme": {
+      "primary": "#000000",
+      "secondary": "#505050",
+      "background": "#FFFFFF"
+    }
+  },
+
+  "credits": {
+    "title": { "text": "Bethlehem Down", "alignment": "center" },
+    "composer": { "text": "Composer Name", "alignment": "right" }
+  },
+
+  "part_list": [
+    {
+      "id": "P1",
+      "name": "Soprano",
+      "instrument": {
+        "name": "Soprano",
+        "sound": "soprano",
+        "midi_settings": {
+          "device_id": "MD1",
+          "instrument_program": 0,
+          "channel": 0,
+          "volume": 70,
+          "pan": 0
+        }
+      }
+    }
+  ],
+
+  "content": [
+    {
+      "part_id": "P1",
+      "measures": [
+        {
+          "measure_number": 1,
+          "time_signature": "4/4",
+          "notes": [
+            {
+              "note": "do",
+              "duration": "quarter",
+              "octave": 4,
+              "articulations": ["staccato"],
+              "dynamics": "mf",
+              "ties": { "start": true, "end": false },
+              "lyrics": "Be-th",
+              "expressions": [
+                {
+                  "type": "slur",
+                  "start": true,
+                  "end": false
+                },
+                {
+                  "type": "crescendo",
+                  "position": "above",
+                  "start": true,
+                  "end": false
+                }
+              ]
+            },
+            {
+              "note": "re",
+              "duration": "quarter",
+              "articulations": ["accent"],
+              "dynamics": "p",
+              "ties": { "start": false, "end": true },
+              "lyrics": "le-hem",
+              "expressions": [
+                {
+                  "type": "slur",
+                  "start": false,
+                  "end": true
+                },
+                {
+                  "type": "crescendo",
+                  "start": false,
+                  "end": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
