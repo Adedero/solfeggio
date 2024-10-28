@@ -36,6 +36,7 @@ export interface NoteArticulation {
 }
 
 export interface Note {
+  noteId: string;
   rest: boolean;
   duration: number;
   voice: number;
@@ -83,7 +84,7 @@ export interface Part {
   partName: string;
   partAbbreviation?: string;
   solo?: boolean;
-  notes?: Note[];
+  notes: Note[];
   instrument: {
     instrumentId: string;
     instrumentName: string;
@@ -194,9 +195,10 @@ export interface Score {
   };
 
   textBlocks?: Text[]; // Formerly scoreTexts
-  fonts?: {
-    noteFont?: Font;
-    lyricFont?: Font;
+  fonts: {
+    noteFont: Font;
+    lyricFont: Font;
+    generalTextFont: Font;
   };
 
   measures: Measure[];

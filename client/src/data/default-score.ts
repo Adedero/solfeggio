@@ -47,6 +47,23 @@ export const defaultScore : Score = {
       right: 25,
     },
   },
+  fonts: {
+    noteFont: {
+      fontFamily: 'Times New Roman',
+      fontSize: 14,
+      color: '#000'
+    },
+    lyricFont: {
+      fontFamily: 'Times New Roman',
+      fontSize: 14,
+      color: '#000'
+    },
+    generalTextFont: {
+      fontFamily: 'Times New Roman',
+      fontSize: 14,
+      color: '#000'
+    } 
+  },
   credits: {
     title: {
       text: "Sample Score",
@@ -77,6 +94,7 @@ export const defaultScore : Score = {
     {
       number: 1,
       measureNumberVisible: true,
+      newSystem: true,
       parts: [
         {
           partId: "1",
@@ -87,6 +105,7 @@ export const defaultScore : Score = {
           },
           notes: [
             {
+              noteId: 'n1',
               rest: false,
               duration: 1,
               voice: 1,
@@ -119,6 +138,7 @@ export const defaultScore : Score = {
               },
             },
             {
+              noteId: 'n2',
               rest: false,
               duration: 1,
               voice: 1,
@@ -129,6 +149,7 @@ export const defaultScore : Score = {
               type: "quarter",
             },
             {
+              noteId: 'n3',
               rest: false,
               duration: 1,
               voice: 1,
@@ -147,6 +168,7 @@ export const defaultScore : Score = {
               ],
             },
             {
+              noteId: 'n4',
               rest: false,
               duration: 1,
               voice: 1,
@@ -177,6 +199,7 @@ export const defaultScore : Score = {
     {
       number: 2,
       measureNumberVisible: true,
+      newSystem: false,
       parts: [
         {
           partId: "1",
@@ -187,6 +210,7 @@ export const defaultScore : Score = {
           },
           notes: [
             {
+              noteId: 'n1',
               rest: false,
               duration: 1,
               voice: 1,
@@ -219,7 +243,8 @@ export const defaultScore : Score = {
               },
             },
             {
-              rest: false,
+              noteId: 'n2',
+              rest: true,
               duration: 1,
               voice: 1,
               pitch: {
@@ -229,6 +254,7 @@ export const defaultScore : Score = {
               type: "quarter",
             },
             {
+              noteId: 'n3',
               rest: false,
               duration: 1,
               voice: 1,
@@ -239,6 +265,7 @@ export const defaultScore : Score = {
               type: "quarter",
             },
             {
+              noteId: 'n4',
               rest: false,
               duration: 1,
               voice: 1,

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, type CSSProperties } from 'vue';
-import { useStore } from '../../../stores/store';
+import { useStore } from '../../../../stores/store';
 const store = useStore();
 
 const pageStyles = computed(() : CSSProperties => {
@@ -20,7 +20,24 @@ const pageStyles = computed(() : CSSProperties => {
 <template>
   <div :style="pageStyles">
     <CenterLine />
-    <ScorePageContent />
+    <div class="score-page-content">
+      <!-- Measures, Text Blocks and Credits -->
+      <div class="measure-container">
+        <ScoreMeasure v-for="measure in store.score.measures" :key="measure.number" :measure />
+      </div>
+    </div>
   </div>
 </template>
+
+<style scoped>
+.score-page-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.measure-container {
+  display: flex;
+}
+</style>
 
