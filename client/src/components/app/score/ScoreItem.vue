@@ -7,6 +7,6 @@ const store = useStore();
 
 <template>
   <div class="w-full h-full flex gap-4 p-10">
-    <ScorePage v-for="page in store.workspace.pages" :key="page" class="page-section" />
+    <ScorePage v-for="page in store.workspace.pages" :key="page" :id="`page_number_${page}`" class="page-section" />
   </div>
 </template>
