@@ -1,32 +1,26 @@
 <script setup lang="ts">
+import { computed, CSSProperties } from 'vue';
+import { useStore } from '../../../stores/store';
+const store = useStore();
 
-interface Props {
-  page: number
-}
-
-defineProps<Props>();
-
-
+const pageStyles = computed(() : CSSProperties => {
+  return {
+    width:  `${store.score.page.width}px`,
+    height: `${store.score.page.height}px`,
+    paddingTop: `${store.score.page.margins.top}px`,
+    paddingRight: `${store.score.page.margins.right}px`,
+    paddingBottom: `${store.score.page.margins.bottom}px`,
+    paddingLeft: `${store.score.page.margins.left}px`,
+    backgroundColor: 'white'
+  }
+});
 </script>
 
 
 <template>
-  <div class="w-full h-full relative">
-    <div class="center-line z-[0] absolute h-full w-[1px] bg-blue-300 inset-0 m-auto"></div>
-    <!-- <ScoreTitle /> -->
-    <ScoreCreditText attribute="title" />
-    <ScoreCreditText attribute="subtitle" />
-    <ScoreCreditText attribute="composer" />
-    <!-- <ScoreSubtitle /> -->
+  <div :style="pageStyles">
+    <CenterLine />
+    <ScorePageContent />
   </div>
 </template>
 
-<style>
-.center-line {
-  display: none;
-}
-
-.center-line.show {
-  display: block;
-}
-</style>

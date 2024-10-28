@@ -16,8 +16,8 @@ export const useStore = defineStore('app', () => {
 
   watch(score, (newValue: Score) => {
     //console.log(newValue)
-    setScore(newValue)
-    updateHistory(newValue)
+    //setScore(newValue)
+    //updateHistory(newValue)
     console.log('Score updated')
   },{
     deep: true
@@ -46,6 +46,7 @@ export const useStore = defineStore('app', () => {
     scale: 0,
     translateX: 0,
     translateY: 0,
+    pages: 1
   });
 
   return { score, history, undo, redo, workspace }

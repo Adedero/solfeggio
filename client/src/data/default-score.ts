@@ -1,221 +1,233 @@
-/* 
-slurs and ties, crescendos
-inside the parts
-slurs: [
-  {
-  startNoteIndex: 0,
-  endNoteIndex: 6,
-  placement: "below" | "above",
+import type { Score } from "../types/score.type";
 
-}
-]
-*/
-
-import type { Score } from "@/types/score.type";
-
-export const defaultScore : Partial<Score> = {
-  "meta": {
-    "score": {
-      "description": "",
-      "created_at": "",
-      "updated_at": "",
-      "key": {
-        "fifths": 0,
-        "mode": "major",
-        "key_signature": "C maj"
+export const defaultScore : Score = {
+  meta: {
+    score: {
+      description: "Sample Tonic Solfa Composition",
+      measures: 4,
+      createdAt: new Date("2024-10-26"),
+      updatedAt: new Date("2024-10-26"),
+      key: {
+        fifths: 0,  // C major/A minor
+        mode: "major",
+        signature: "C"
       },
-      "tempo": {
-        "note": "quater",
-        "bpm": 80,
-        "time_signature": "4/4"
-      }
-    },
-    "identification": {
-      "author": "",
-      "rights": "",
-      "source": "",
-      "encoding": ""
-    }
-  },
-  "pages": 1,
-  "appearance": {
-    "page_layout": {
-      "width": 595,
-      "height": 842,
-      "orientation": "portrait",
-      "margins": {
-        "odd_page_margin": {
-          "top": 10,
-          "bottom": 10,
-          "left": 10,
-          "right": 10
-        },
-        "even_page_margin": {
-          "top": 10,
-          "bottom": 10,
-          "left": 10,
-          "right": 10
+      time: {
+        beats: 4,
+        beatType: 4
+      },
+      tempo: {
+        baseNote: "quarter",
+        bpm: 120,
+        direction: {
+          text: "Allegro",
+          position: { x: 10, y: 20 },
+          style: {
+            fontSize: 14,
+            fontFamily: "Arial",
+            color: "black",
+            textAlign: "center"
+          }
         }
       }
     },
-    "fonts": {
-      "note_font": {
-        "font": "monospace",
-        "size": 12,
-        "color": "#000000"
-      },
-      "lyric_font": {
-        "font": "system-ui",
-        "size": 12,
-        "color": "#000000"
-      },
-      "word-font": {
-        "font": "system-ui",
-        "size": 12,
-        "color": "#000000"
-      }
+    identification: {
+      author: "John Doe",
+      rights: "Public domain",
+      source: "Original composition",
+      encoding: "UTF-8"
     }
   },
-  "credits": {
-    "title": {
-      "text": "Bethlehem Down",
-      "default_x": 0,
-      "default_y": 15,
-      "font": "Arial",
-      "size": 22,
-      "color": "#000000",
-      "text_align": "center",
-      "font_weight": "bold",
-      "decoration": 'none',
-      "font_style": 'none',
-    },
-    "subtitle": {
-      "text": "SUBTITLE",
-      "default_x": 0,
-      "default_y": 45,
-      "font": "Arial",
-      "size": 14,
-      "color": "#000000",
-      "text_align": "center",
-      "font_weight": 'normal',
-      "decoration": 'none',
-      "font_style": 'none',
-    },
-    "composer": {
-      "text": "Composer",
-      "default_x": 475,
-      "default_y": 60,
-      "font": "Arial",
-      "size": 13,
-      "color": "#000000",
-      "text_align": "right",
-      "font_weight": 'normal',
-      "decoration": 'none',
-      "font_style": 'none',
-    },
-    "arranger": {
-      "text": "Arranger Name",
-      "default_x": 435,
-      "default_y": 80,
-      "font": "Arial",
-      "size": 12,
-      "color": "#000000",
-      "text_align": "right",
-      "font_weight": 'normal',
-      "decoration": 'none',
-      "font_style": 'none',
-    },
-    "lyricist": {
-      "text": "Lyricist Name",
-      "default_x": 20,
-      "default_y": 50,
-      "font": "Arial",
-      "size": 16,
-      "color": "#000000",
-      "text_align": "left",
-      "font_weight": 'normal',
-      "decoration": 'none',
-      "font_style": 'none',
-    },
-    "dedication": {
-      "text": "Dedication",
-      "default_x": 297.5,
-      "default_y": 15,
-      "font": "Arial",
-      "size": 16,
-      "color": "#000000",
-      "text_align": "center",
-      "font_weight": 'normal',
-      "decoration": 'none',
-      "font_style": 'none',
-    },
-    "editor": {
-      "text": "Editor Name",
-      "default_x": 545,
-      "default_y": 660,
-      "font": "Arial",
-      "size": 16,
-      "color": "#000000",
-      "text_align": "left",
-      "font_weight": 'normal',
-      "decoration": 'none',
-      "font_style": 'none',
-    },
-    "transcriber": {
-      "text": "Transcriber Name",
-      "default_x": 545,
-      "default_y": 690,
-      "font": "Arial",
-      "size": 16,
-      "color": "#000000",
-      "text_align": "left",
-      "font_weight": 'normal',
-      "decoration": 'none',
-      "font_style": 'none',
-    },
-    "translator": {
-      "text": "Translator Name",
-      "default_x": 545,
-      "default_y": 690,
-      "font": "Arial",
-      "size": 16,
-      "color": "#000000",
-      "text_align": "left",
-      "font_weight": 'normal',
-      "decoration": 'none',
-      "font_style": 'none',
+
+  page: {
+    width: 595,
+    height: 842,
+    orientation: "portrait",
+    margins: {
+      top: 20,
+      bottom: 20,
+      left: 20,
+      right: 20
     }
   },
-  "part_list": [
+
+  credits: {
+    title: { text: "My First Tonic Solfa", position: { x: 0, y: 10 } },
+    subtitle: { text: "A Simple Composition", position: { x: 0, y: 30 } },
+    composer: { text: "John Doe", position: { x: 0, y: 50 } },
+    lyricist: { text: "Jane Smith", position: { x: 0, y: 70 } }
+  },
+
+  textBlocks: [
     {
-      "id": "P1",
-      "start": true,
-      "part_name": "Soprano" ,
-      "part_abbreviation": "S.",
-      "instrument": {
-        "instrument_name": "Soprano",
-        "instrument_sound": "soprano"
-      },
-      "midi_device": {
-        "id": "MD1",
-        "port": 2
-      },
-      "midi_instrument": {
-        "id": "MI1",
-        "program": 0,
-        "channel": 0,
-        "volume": 34,
-        "pan": 0
+      text: "Dynamic Change: Crescendo",
+      position: { x: 15, y: 200 },
+      style: {
+        fontSize: 10,
+        fontFamily: "Arial",
+        color: "gray",
+        fontWeight: "bold"
       }
     }
   ],
-  "parts": [
+
+  fonts: {
+    noteFont: { fontFamily: "Arial", fontSize: 12, color: "black" },
+    lyricFont: { fontFamily: "Times New Roman", fontSize: 10, color: "blue" }
+  },
+
+  partList: [
     {
-      "id": "MI1",
-      "measure": {
-        "number": 1,
-        "width": 434
+      partId: "p1",
+      partName: "Melody",
+      partAbbreviation: "Mel",
+      solo: true,
+      instrument: {
+        instrumentId: "i1",
+        instrumentName: "Piano",
+        instrumentSound: "acoustic_grand_piano",
+        midiSettings: {
+          deviceId: "dev1",
+          devicePort: 1,
+          program: 1,
+          channel: 1,
+          volume: 100,
+          pan: 64
+        }
       }
     }
+  ],
+
+  parts: [
+    {
+      partId: "p1",
+      measures: [
+        {
+          number: 1,
+          measureNumberVisible: true,
+          beats: {
+            original: 4,
+            actual: 4,
+            beatType: 4,
+            grouping: 2
+          },
+          timeSignature: { text: "4/4" },
+          key: {
+            fifths: 0,
+            mode: "major",
+            keySignature: { text: "C Major" }
+          },
+          modulation: false,
+          tempo: {
+            bpm: 120,
+            annotation: { text: "Allegro", position: { x: 0, y: 15 } }
+          },
+          style: {
+            marginLeft: 5,
+            marginRight: 5,
+            marginTop: 10,
+            marginBottom: 10,
+            width: 200
+          },
+          leftBarline: "single",
+          rightBarline: "repeat-right",
+          newSystem: false,
+          repeat: { times: 2, end: false },
+          textBlocks: [{ text: "Intro", position: { x: 20, y: 40 } }],
+          notes: [
+            {
+              rest: false,
+              duration: 1,
+              voice: 1,
+              pitch: { step: "C", alter: 0, octave: 4 },
+              type: "quarter",
+              dotted: false,
+              beats: 1,
+              maxBeats: 4,
+              offsetX: 10,
+              offsetY: 20,
+              articulations: [{ type: "staccato", placement: "above", offsetX: 2, offsetY: -2 }],
+              lyric: {
+                text: "La",
+                syllabic: "single",
+                position: { offsetX: 5, offsetY: 10 },
+                style: { fontStyle: "italic", fontWeight: "normal", textDecoration: "none", textAlign: "center" }
+              }
+            },
+            {
+              rest: false,
+              duration: 1,
+              voice: 1,
+              pitch: { step: "D", alter: 0, octave: 4 },
+              type: "quarter",
+              dotted: false,
+              beats: 1,
+              maxBeats: 4,
+              offsetX: 30,
+              offsetY: 20,
+              articulations: [{ type: "marcato", placement: "below", offsetX: 0, offsetY: 3 }],
+              lyric: {
+                text: "Sol",
+                syllabic: "single",
+                position: { x: 30, y: 60 },
+                style: { fontStyle: "italic", fontWeight: "bold", textDecoration: "underline", textAlign: "center" }
+              }
+            }
+          ]
+        },
+        {
+          number: 2,
+          measureNumberVisible: true,
+          beats: { original: 4, actual: 4, beatType: 4, grouping: 2 },
+          timeSignature: { text: "4/4" },
+          key: { fifths: 0, mode: "major", keySignature: { text: "C Major" } },
+          modulation: false,
+          tempo: { bpm: 120, annotation: { text: "Allegro" } },
+          style: { marginLeft: 5, marginRight: 5, marginTop: 10, marginBottom: 10, width: 200 },
+          leftBarline: "repeat-left",
+          rightBarline: "double",
+          newSystem: true,
+          textBlocks: [{ text: "Verse", position: { x: 15, y: 25 } }],
+          notes: [
+            {
+              rest: true,
+              duration: 1,
+              voice: 1,
+              type: "quarter",
+              dotted: false,
+              beats: 1,
+              maxBeats: 4,
+              offsetX: 10,
+              offsetY: 15,
+              articulations: [],
+              lyric: {
+                text: "",
+                syllabic: "single",
+                style: { fontStyle: "normal", fontWeight: "normal", textDecoration: "none", textAlign: "center" }
+              }
+            },
+            {
+              rest: false,
+              duration: 2,
+              voice: 1,
+              pitch: { step: "E", alter: 0, octave: 4 },
+              type: "half",
+              dotted: false,
+              beats: 2,
+              maxBeats: 4,
+              offsetX: 30,
+              offsetY: 25,
+              articulations: [{ type: "tenuto", placement: "above", offsetX: 0, offsetY: -1 }],
+              lyric: {
+                text: "Mi",
+                syllabic: "single",
+                position: { offsetX: 5, offsetY: 12 },
+                style: { fontStyle: "normal", fontWeight: "bold", textDecoration: "none", textAlign: "center" }
+              }
+            }
+          ]
+        }
+      ]
+    }
   ]
-}
+};

@@ -3,8 +3,11 @@ import { useStore } from '@/stores/store';
 
 const store = useStore();
 
-const handleScaleUpdate = (scale: { scale: number, translateX: number, translateY: number}) => {
-  store.workspace = scale;
+const handleScaleUpdate = (values: { scale: number, translateX: number, translateY: number}) => {
+  store.workspace = {
+    ...store.workspace,
+    ...values
+  }
 }
 </script>
 

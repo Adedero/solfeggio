@@ -4,13 +4,5 @@ const store = useStore();
 </script>
 
 <template>
-  <div class="measure">
-
-  </div>
+  <ScoreMeasure v-for="measure in store.score." />
 </template>
-
-<style>
-.measure {
-
-}
-</style>

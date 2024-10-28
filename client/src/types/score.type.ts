@@ -1,122 +1,209 @@
+interface Text {
+  text: string;
+  position?: {
+    x?: number;
+    y?: number;
+  };
+  style?: {
+    fontSize?: number;
+    fontFamily?: string;
+    fontStyle?: "normal" | "italic" | "oblique";
+    fontWeight?: "normal" | "bold" | "lighter" | 100 | 200 | 300 | 700;
+    color?: string;
+    textDecoration?: string;
+    textAlign?: "center" | "left" | "right";
+  };
+}
+
+interface Font {
+  fontFamily?: string;
+  fontSize?: number;
+  color?: string;
+}
+
+interface PartListItem {
+  partId: string;
+  partName: string;
+  partAbbreviation?: string;
+  solo?: boolean;
+  instrument: {
+    instrumentId: string;
+    instrumentName: string;
+    instrumentSound?: string;
+    midiSettings?: {
+      deviceId?: string;
+      devicePort?: number;
+      program?: number;
+      channel?: number;
+      volume?: number;
+      pan?: number;
+    };
+  };
+}
+
+interface NoteArticulation {
+  type: "staccato" | "marcato" | "fermata" | "tenuto" | "accent" | "sforzando" | "mordent" | "trill" | "glissando";
+  placement?: "above" | "below";
+  offsetX?: number;
+  offsetY?: number;
+  distortion?: {
+    notes: {
+      duration: number;
+      volume: number;
+      pitch: {
+        step: number;
+        octave: number;
+      };
+    }[];
+  };
+}
+
+interface Note {
+  rest: boolean;
+  duration: number;
+  voice?: number;
+  pitch?: {
+    step: "C" | "D" | "E" | "F" | "G" | "A" | "B";
+    alter?: 0 | 1 | -1;
+    octave: number;
+  };
+  type: "quarter" | "half" | "whole" | "eighth" | "sixteenth";
+  dotted?: boolean;
+  beats?: number;
+  maxBeats?: number;
+  offsetX?: number;
+  offsetY?: number;
+  articulations?: NoteArticulation[];
+  slur?: {
+    placement?: "above" | "below";
+    type: "start" | "center" | "end";
+    offsetX?: number;
+    offsetY?: number;
+  };
+  tie?: {
+    type: "start" | "stop";
+  };
+  lyric?: {
+    text: string;
+    syllabic: "single" | "begin" | "end" | "continue";
+    position?: {
+      offsetX?: number;
+      offsetY?: number;
+      x?: number;
+      y?: number;
+    };
+    style?: {
+      fontStyle?: "normal" | "italic" | "oblique";
+      fontWeight?: "normal" | "bold" | "lighter" | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+      textDecoration?: string;
+      textAlign?: "center" | "left" | "right";
+    };
+  };
+}
+
+interface Measure {
+  number: number;
+  measureNumberVisible?: boolean;
+  repeat?: {
+    times?: number;
+    end?: boolean;
+  };
+  beats?: {
+    original?: number;
+    actual?: number;
+    beatType?: number;
+    grouping?: number;
+  };
+  timeSignature?: Text;
+  key?: {
+    fifths: number;
+    mode: "major" | "minor";
+    keySignature?: Text;
+  };
+  modulation?: boolean;
+  tempo?: {
+    bpm: number;
+    annotation?: Text;
+  };
+  style?: {
+    marginLeft?: number;
+    marginRight?: number;
+    marginTop?: number;
+    marginBottom?: number;
+    width?: number;
+  };
+  leftBarline?: "single" | "double" | "end" | "repeat-left" | "repeat-right" | "repeat-both";
+  rightBarline?: "single" | "double" | "end" | "repeat-left" | "repeat-right" | "repeat-both";
+  newSystem?: boolean;
+  systemDistance?: number;
+  volta?: {
+    number?: number;
+    type?: "start" | "center" | "end";
+    closeEnd?: boolean;
+  };
+  textBlocks?: Text[];
+  notes?: Note[];
+}
 
 interface Part {
-  "id": string,
-  "measure": {
-    "number": number,
-    "width": number
-  }
+  partId: string;
+  measures: Measure[];
 }
 
-interface ScoreText {
-  "text": string,
-  "default_x": number,
-  "default_y": number,
-  "font": string,
-  "size": number,
-  "color": string
-  "text_align": string,
-  "font_weight": string,
-  "decoration": string,
-  "font_style": string,
-}
 export interface Score {
-  "meta": {
-    "score": {
-      "description": string,
-      "created_at": string,
-      "updated_at": string,
-      "key": {
-        "fifths": number,
-        "mode": "major" | "minor",
-        "key_signature": string
-      },
-      "tempo": {
-        "note": "quater" | "half" | "one" | "two" | "four",
-        "bpm": number,
-        "time_signature": string
-      }
-    },
-    "identification": {
-      "author": string,
-      "rights": string,
-      "source": string,
-      "encoding": string
-    }
-  },
-  "pages": number,
-  "appearance": {
-    "page_layout": {
-      "width": number,
-      "height": number,
-      "orientation": "portrait" | "landscape",
-      "margins": {
-        "odd_page_margin": {
-          "top": number,
-          "bottom": number,
-          "left": number,
-          "right": number
-        },
-        "even_page_margin": {
-          "top": number,
-          "bottom": number,
-          "left": number,
-          "right": number
-        }
-      }
-    },
-    "fonts": {
-      "note_font": {
-        "font": string,
-        "size": number,
-        "color": string
-      },
-      "lyric_font": {
-        "font": string,
-        "size": number,
-        "color": string
-      },
-      "word-font": {
-        "font": string,
-        "size": number,
-        "color": string
-      }
-    }
-  },
-  "credits": {
-    "title": ScoreText,
-    "subtitle": ScoreText,
-    "composer": ScoreText,
-    "arranger": ScoreText,
-    "lyricist": ScoreText,
-    "dedication": ScoreText,
-    "editor": ScoreText,
-    "transcriber": ScoreText,
-    "translator": ScoreText
-  },
-  "score_texts": ScoreText[],
+  meta: {
+    score: {
+      description: string;
+      measures?: number;
+      createdAt?: Date;
+      updatedAt?: Date;
+      key?: {
+        fifths?: number;
+        mode?: "major" | "minor";
+        signature?: string;
+      };
+      time?: {
+        beats?: number;
+        beatType?: number;
+      };
+      tempo?: {
+        baseNote?: "quarter" | "half" | "whole" | "eighth" | "sixteenth";
+        bpm?: number;
+        direction?: Text;
+      };
+    };
+    identification?: {
+      author?: string;
+      rights?: string;
+      source?: string;
+      encoding?: string;
+    };
+  };
 
-  "part_list": [
-    {
-      "id": string,
-      "start": true,
-      "part_name": string ,
-      "part_abbreviation": string,
-      "instrument": {
-        "instrument_name": string,
-        "instrument_sound": string
-      },
-      "midi_device": {
-        "id": string,
-        "port": number
-      },
-      "midi_instrument": {
-        "id": string,
-        "program": number,
-        "channel": number,
-        "volume": number,
-        "pan": number
-      }
-    }
-  ],
-  "parts": Part[]
+  page: {
+    width: number;
+    height: number;
+    orientation: "portrait" | "landscape";
+    margins: {
+      top: number;
+      bottom: number;
+      left: number;
+      right: number;
+    };
+  };
+
+  credits?: {
+    title?: Text;
+    subtitle?: Text;
+    composer?: Text;
+    lyricist?: Text;
+  };
+
+  textBlocks?: Text[]; // Formerly scoreTexts
+  fonts?: {
+    noteFont?: Font;
+    lyricFont?: Font;
+  };
+  partList: PartListItem[];
+  parts: Part[];
 }
