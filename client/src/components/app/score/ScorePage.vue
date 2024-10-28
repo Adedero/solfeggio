@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, CSSProperties } from 'vue';
+import { computed, type CSSProperties } from 'vue';
 import { useStore } from '../../../stores/store';
 const store = useStore();
 
@@ -11,7 +11,7 @@ const pageStyles = computed(() : CSSProperties => {
     paddingRight: `${store.score.page.margins.right}px`,
     paddingBottom: `${store.score.page.margins.bottom}px`,
     paddingLeft: `${store.score.page.margins.left}px`,
-    backgroundColor: 'white'
+    backgroundColor: store.score.page.color || 'white'
   }
 });
 </script>

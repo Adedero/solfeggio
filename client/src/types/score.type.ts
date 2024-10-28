@@ -1,32 +1,28 @@
-interface Text {
+export interface Text {
   text: string;
-  position?: {
-    x?: number;
-    y?: number;
-  };
-  style?: {
-    fontSize?: number;
-    fontFamily?: string;
-    fontStyle?: "normal" | "italic" | "oblique";
-    fontWeight?: "normal" | "bold" | "lighter" | 100 | 200 | 300 | 700;
-    color?: string;
-    textDecoration?: string;
-    textAlign?: "center" | "left" | "right";
-  };
+  offsetX: number;
+  offsetY: number;
+  fontSize: number;
+  fontFamily: string;
+  fontStyle: "normal" | "italic";
+  fontWeight: "normal" | "bold" | "lighter" | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+  color: string;
+  textDecoration: string;
+  textAlign: "center" | "left" | "right";
 }
 
-interface Font {
-  fontFamily?: string;
-  fontSize?: number;
-  color?: string;
+export interface Font {
+  fontFamily: string;
+  fontSize: number;
+  color: string;
 }
 
 
-interface NoteArticulation {
+export interface NoteArticulation {
   type: "staccato" | "marcato" | "fermata" | "tenuto" | "accent" | "sforzando" | "mordent" | "trill" | "glissando";
-  placement?: "above" | "below";
-  offsetX?: number;
-  offsetY?: number;
+  placement: "above" | "below";
+  offsetX: number;
+  offsetY: number;
   distortion?: {
     notes: {
       duration: number;
@@ -39,10 +35,10 @@ interface NoteArticulation {
   };
 }
 
-interface Note {
+export interface Note {
   rest: boolean;
   duration: number;
-  voice?: number;
+  voice: number;
   pitch?: {
     step: "C" | "D" | "E" | "F" | "G" | "A" | "B";
     alter?: 0 | 1 | -1;
@@ -82,7 +78,7 @@ interface Note {
   };
 }
 
-interface Part {
+export interface Part {
   partId: string;
   partName: string;
   partAbbreviation?: string;
@@ -103,7 +99,7 @@ interface Part {
   };
 }
 
-interface Measure {
+export interface Measure {
   number: number;
   measureNumberVisible?: boolean;
   parts: Part[],
@@ -181,6 +177,7 @@ export interface Score {
     width: number;
     height: number;
     orientation: "portrait" | "landscape";
+    color?: string;
     margins: {
       top: number;
       bottom: number;
