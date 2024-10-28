@@ -2,13 +2,14 @@
 import { useStore } from '@/stores/store';
 const store = useStore();
 
+
+//Content will consist of 
+//Measures, credits, and textBlocks
 </script>
 
 <template>
   <div class="page-content">
-    <div class="part-group-container">
-      <ScorePart v-for="part in store.score.parts" :key="part.partId" />
-    </div>
+    <ScoreMeasure v-for="measure in store.score.measures" :key="measure.number" />
   </div>
 </template>
 

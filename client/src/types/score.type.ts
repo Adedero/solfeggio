@@ -21,25 +21,6 @@ interface Font {
   color?: string;
 }
 
-interface PartListItem {
-  partId: string;
-  partName: string;
-  partAbbreviation?: string;
-  solo?: boolean;
-  instrument: {
-    instrumentId: string;
-    instrumentName: string;
-    instrumentSound?: string;
-    midiSettings?: {
-      deviceId?: string;
-      devicePort?: number;
-      program?: number;
-      channel?: number;
-      volume?: number;
-      pan?: number;
-    };
-  };
-}
 
 interface NoteArticulation {
   type: "staccato" | "marcato" | "fermata" | "tenuto" | "accent" | "sforzando" | "mordent" | "trill" | "glissando";
@@ -101,9 +82,31 @@ interface Note {
   };
 }
 
+interface Part {
+  partId: string;
+  partName: string;
+  partAbbreviation?: string;
+  solo?: boolean;
+  notes?: Note[];
+  instrument: {
+    instrumentId: string;
+    instrumentName: string;
+    instrumentSound?: string;
+    midiSettings?: {
+      deviceId?: string;
+      devicePort?: number;
+      program?: number;
+      channel?: number;
+      volume?: number;
+      pan?: number;
+    };
+  };
+}
+
 interface Measure {
   number: number;
   measureNumberVisible?: boolean;
+  parts: Part[],
   repeat?: {
     times?: number;
     end?: boolean;
@@ -142,12 +145,6 @@ interface Measure {
     closeEnd?: boolean;
   };
   textBlocks?: Text[];
-  notes?: Note[];
-}
-
-interface Part {
-  partId: string;
-  measures: Measure[];
 }
 
 export interface Score {
@@ -204,6 +201,6 @@ export interface Score {
     noteFont?: Font;
     lyricFont?: Font;
   };
-  partList: PartListItem[];
-  parts: Part[];
+
+  measures: Measure[];
 }

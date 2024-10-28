@@ -4,230 +4,169 @@ export const defaultScore : Score = {
   meta: {
     score: {
       description: "Sample Tonic Solfa Composition",
-      measures: 4,
-      createdAt: new Date("2024-10-26"),
-      updatedAt: new Date("2024-10-26"),
+      measures: 8,
+      createdAt: new Date(),
+      updatedAt: new Date(),
       key: {
-        fifths: 0,  // C major/A minor
+        fifths: 0,
         mode: "major",
-        signature: "C"
+        signature: "C major",
       },
       time: {
         beats: 4,
-        beatType: 4
+        beatType: 4,
       },
       tempo: {
         baseNote: "quarter",
         bpm: 120,
         direction: {
           text: "Allegro",
-          position: { x: 10, y: 20 },
-          style: {
-            fontSize: 14,
-            fontFamily: "Arial",
-            color: "black",
-            textAlign: "center"
-          }
-        }
-      }
+          position: { x: 10, y: 10 },
+          style: { fontSize: 14, fontWeight: "bold", textAlign: "center" },
+        },
+      },
     },
     identification: {
       author: "John Doe",
-      rights: "Public domain",
-      source: "Original composition",
-      encoding: "UTF-8"
-    }
+      rights: "Public Domain",
+      source: "Original Composition",
+      encoding: "UTF-8",
+    },
   },
 
   page: {
-    width: 595,
-    height: 842,
+    width: 210,
+    height: 297,
     orientation: "portrait",
     margins: {
       top: 20,
       bottom: 20,
       left: 20,
-      right: 20
-    }
+      right: 20,
+    },
   },
 
   credits: {
-    title: { text: "My First Tonic Solfa", position: { x: 0, y: 10 } },
-    subtitle: { text: "A Simple Composition", position: { x: 0, y: 30 } },
-    composer: { text: "John Doe", position: { x: 0, y: 50 } },
-    lyricist: { text: "Jane Smith", position: { x: 0, y: 70 } }
+    title: { text: "Tonic Solfa Composition", style: { fontSize: 18, fontWeight: "bold" } },
+    subtitle: { text: "A Sample Work", style: { fontSize: 14, fontStyle: "italic" } },
+    composer: { text: "John Doe", style: { fontSize: 12 } },
+    lyricist: { text: "Jane Smith", style: { fontSize: 12 } },
   },
 
   textBlocks: [
-    {
-      text: "Dynamic Change: Crescendo",
-      position: { x: 15, y: 200 },
-      style: {
-        fontSize: 10,
-        fontFamily: "Arial",
-        color: "gray",
-        fontWeight: "bold"
-      }
-    }
+    { text: "This is a sample tonic solfa composition", style: { fontSize: 12, color: "black", textAlign: "left" } },
   ],
 
   fonts: {
     noteFont: { fontFamily: "Arial", fontSize: 12, color: "black" },
-    lyricFont: { fontFamily: "Times New Roman", fontSize: 10, color: "blue" }
+    lyricFont: { fontFamily: "Times New Roman", fontSize: 12, color: "black" },
   },
 
-  partList: [
+  measures: [
     {
-      partId: "p1",
-      partName: "Melody",
-      partAbbreviation: "Mel",
-      solo: true,
-      instrument: {
-        instrumentId: "i1",
-        instrumentName: "Piano",
-        instrumentSound: "acoustic_grand_piano",
-        midiSettings: {
-          deviceId: "dev1",
-          devicePort: 1,
-          program: 1,
-          channel: 1,
-          volume: 100,
-          pan: 64
-        }
-      }
-    }
-  ],
-
-  parts: [
-    {
-      partId: "p1",
-      measures: [
+      number: 1,
+      parts: [
         {
-          number: 1,
-          measureNumberVisible: true,
-          beats: {
-            original: 4,
-            actual: 4,
-            beatType: 4,
-            grouping: 2
+          partId: "part1",
+          partName: "Soprano",
+          instrument: {
+            instrumentId: "inst1",
+            instrumentName: "Piano",
           },
-          timeSignature: { text: "4/4" },
-          key: {
-            fifths: 0,
-            mode: "major",
-            keySignature: { text: "C Major" }
-          },
-          modulation: false,
-          tempo: {
-            bpm: 120,
-            annotation: { text: "Allegro", position: { x: 0, y: 15 } }
-          },
-          style: {
-            marginLeft: 5,
-            marginRight: 5,
-            marginTop: 10,
-            marginBottom: 10,
-            width: 200
-          },
-          leftBarline: "single",
-          rightBarline: "repeat-right",
-          newSystem: false,
-          repeat: { times: 2, end: false },
-          textBlocks: [{ text: "Intro", position: { x: 20, y: 40 } }],
           notes: [
             {
               rest: false,
               duration: 1,
-              voice: 1,
-              pitch: { step: "C", alter: 0, octave: 4 },
+              pitch: { step: "C", octave: 4 },
               type: "quarter",
-              dotted: false,
-              beats: 1,
-              maxBeats: 4,
               offsetX: 10,
               offsetY: 20,
-              articulations: [{ type: "staccato", placement: "above", offsetX: 2, offsetY: -2 }],
-              lyric: {
-                text: "La",
-                syllabic: "single",
-                position: { offsetX: 5, offsetY: 10 },
-                style: { fontStyle: "italic", fontWeight: "normal", textDecoration: "none", textAlign: "center" }
-              }
+              lyric: { text: "Do", syllabic: "single" },
             },
             {
               rest: false,
               duration: 1,
-              voice: 1,
-              pitch: { step: "D", alter: 0, octave: 4 },
+              pitch: { step: "D", octave: 4 },
               type: "quarter",
-              dotted: false,
-              beats: 1,
-              maxBeats: 4,
               offsetX: 30,
               offsetY: 20,
-              articulations: [{ type: "marcato", placement: "below", offsetX: 0, offsetY: 3 }],
-              lyric: {
-                text: "Sol",
-                syllabic: "single",
-                position: { x: 30, y: 60 },
-                style: { fontStyle: "italic", fontWeight: "bold", textDecoration: "underline", textAlign: "center" }
-              }
-            }
-          ]
+              lyric: { text: "Re", syllabic: "single" },
+            },
+          ],
         },
         {
-          number: 2,
-          measureNumberVisible: true,
-          beats: { original: 4, actual: 4, beatType: 4, grouping: 2 },
-          timeSignature: { text: "4/4" },
-          key: { fifths: 0, mode: "major", keySignature: { text: "C Major" } },
-          modulation: false,
-          tempo: { bpm: 120, annotation: { text: "Allegro" } },
-          style: { marginLeft: 5, marginRight: 5, marginTop: 10, marginBottom: 10, width: 200 },
-          leftBarline: "repeat-left",
-          rightBarline: "double",
-          newSystem: true,
-          textBlocks: [{ text: "Verse", position: { x: 15, y: 25 } }],
+          partId: "part2",
+          partName: "Alto",
+          instrument: {
+            instrumentId: "inst2",
+            instrumentName: "Violin",
+          },
           notes: [
             {
-              rest: true,
+              rest: false,
               duration: 1,
-              voice: 1,
+              pitch: { step: "E", octave: 4 },
               type: "quarter",
-              dotted: false,
-              beats: 1,
-              maxBeats: 4,
               offsetX: 10,
-              offsetY: 15,
-              articulations: [],
-              lyric: {
-                text: "",
-                syllabic: "single",
-                style: { fontStyle: "normal", fontWeight: "normal", textDecoration: "none", textAlign: "center" }
-              }
+              offsetY: 40,
+              lyric: { text: "Mi", syllabic: "single" },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      number: 2,
+      parts: [
+        {
+          partId: "part1",
+          partName: "Soprano",
+          instrument: {
+            instrumentId: "inst1",
+            instrumentName: "Piano",
+          },
+          notes: [
+            {
+              rest: false,
+              duration: 1,
+              pitch: { step: "F", octave: 4 },
+              type: "quarter",
+              offsetX: 10,
+              offsetY: 20,
+              lyric: { text: "Fa", syllabic: "single" },
             },
             {
               rest: false,
-              duration: 2,
-              voice: 1,
-              pitch: { step: "E", alter: 0, octave: 4 },
-              type: "half",
-              dotted: false,
-              beats: 2,
-              maxBeats: 4,
+              duration: 1,
+              pitch: { step: "G", octave: 4 },
+              type: "quarter",
               offsetX: 30,
-              offsetY: 25,
-              articulations: [{ type: "tenuto", placement: "above", offsetX: 0, offsetY: -1 }],
-              lyric: {
-                text: "Mi",
-                syllabic: "single",
-                position: { offsetX: 5, offsetY: 12 },
-                style: { fontStyle: "normal", fontWeight: "bold", textDecoration: "none", textAlign: "center" }
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ]
+              offsetY: 20,
+              lyric: { text: "Sol", syllabic: "single" },
+            },
+          ],
+        },
+        {
+          partId: "part2",
+          partName: "Alto",
+          instrument: {
+            instrumentId: "inst2",
+            instrumentName: "Violin",
+          },
+          notes: [
+            {
+              rest: false,
+              duration: 1,
+              pitch: { step: "A", octave: 4 },
+              type: "quarter",
+              offsetX: 10,
+              offsetY: 40,
+              lyric: { text: "La", syllabic: "single" },
+            },
+          ],
+        },
+      ],
+    },
+    // Additional measures can be added here...
+  ],
 };
